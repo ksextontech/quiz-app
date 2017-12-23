@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  background-color: #363636;
+}
+
+a {
+  margin: 0 .5em;
+  padding: .5em 1em;
+  text-decoration: none;
+  color: #fff;
+}
+
+a svg {
+  margin-right: .25em;
+}
+
+a:first-of-type {
+  margin-left: 0;
+}
+
+a:hover, a:focus, a:active {
+  background-color: #aaa;
+}
