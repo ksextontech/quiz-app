@@ -1,7 +1,7 @@
 @import url('reset.css');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-body {
+* {
   font-size: 14px;
   font-family: 'Lato', sans-serif;
 }
@@ -9,3 +9,7 @@ body {
 h1 { font-size: 2em; }
 h2 { font-size: 1.5em; }
 h3, h4, h6 { font-size: 1.2em; }
+
+h1, h2, h3, h4, h5, h6, form legend {
+  font-weight: bold;
+}

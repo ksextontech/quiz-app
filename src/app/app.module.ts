@@ -6,21 +6,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { QuizCreateComponent } from './quiz-create/quiz-create.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizCreateFormComponent } from './quiz-create-form/quiz-create-form.component';
 
 const routes: Route[] = [
   { path: '', component: QuizListComponent },
   { path: 'quizzes', component: QuizListComponent },
-  { path: 'quiz/create', component: QuizCreateComponent }
+  { path: 'quiz/create', component: QuizCreateFormComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    QuizCreateComponent,
-    QuizListComponent
+    QuizListComponent,
+    QuizCreateFormComponent
   ],
   imports: [
     BrowserModule,

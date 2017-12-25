@@ -5,9 +5,9 @@
       <label for="quiz-name">Name</label>
       <input type="text" name="quiz-name" placeholder="quiz name">
     </div>
-
-    <section>
-      <header>Questions</header>
-    </section>
   </fieldset>
+
+  <div>
+    <button type="submit" (click)="createQuiz()" [disabled]="false">Create Quiz</button>
+  </div>
 </form>
