@@ -14,6 +14,12 @@ h1, h2, h3, h4, h5, h6, form legend {
   font-weight: bold;
 }
 
+input[type='text'] {
+  padding: .3em;
+  border-radius: 2px;
+  border: thin solid lightgrey;
+}
+
 pre {
   font-family: Consolas;
   font-size: .9em;
@@ -26,3 +32,15 @@ pre {
 /* pre:hover, pre:focus {
   width: min-content;
 } */
+
+div.success input {
+  border: thin solid green;
+}
+
+div.danger input {
+  border: thin solid red;
+}
+
+div.debug {
+  margin: 1em 0;
+}

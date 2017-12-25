@@ -1,19 +1,20 @@
 nav {
   display: flex;
   background-color: #363636;
+  margin-bottom: 1em;
 }
 
 a {
-  margin: 0 .5em;
+  margin: 0;
   padding: .5em 1em;
   text-decoration: none;
   color: #fff;
 }
 
-a:first-of-type {
-  margin-left: 0;
+a:hover, a:focus, a:active, a.active {
+  background-color: #aaa;
 }
 
-a:hover, a:focus, a:active {
-  background-color: #aaa;
+a:hover {
+  background-color: #abc;
 }

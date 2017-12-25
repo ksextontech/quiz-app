@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Quiz } from '../model/quiz';
 
 @Component({
@@ -8,16 +9,24 @@ import { Quiz } from '../model/quiz';
 })
 export class QuizCreateFormComponent implements OnInit {
   @Output() QuizCreated: EventEmitter<Quiz> = new EventEmitter<Quiz>();
+  @ViewChild('quizForm') form: any;
 
   quiz: Quiz;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   createQuiz() {
+    if (!this.form.valid) {
+      return;
+    }
 
+    console.log('form submitted');
+    this.form.reset();
+    const quizId = '1';
+    this.router.navigate([`quiz/${quizId}/questions`]);
   }
 
 }

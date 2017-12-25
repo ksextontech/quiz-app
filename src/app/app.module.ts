@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizCreateFormComponent } from './quiz-create-form/quiz-create-form.component';
+import { QuizQuestionListComponent } from './quiz-question-list/quiz-question-list.component';
 
 const routes: Route[] = [
   { path: '', component: QuizListComponent },
   { path: 'quizzes', component: QuizListComponent },
-  { path: 'quiz/create', component: QuizCreateFormComponent }
+  { path: 'quiz/create', component: QuizCreateFormComponent },
+  { path: 'quiz/:id/questions', component: QuizQuestionListComponent },
+  { path: 'quiz/questions/:quizId', component: QuizQuestionListComponent }
 ];
 
 @NgModule({
@@ -20,7 +23,8 @@ const routes: Route[] = [
     AppComponent,
     NavigationComponent,
     QuizListComponent,
-    QuizCreateFormComponent
+    QuizCreateFormComponent,
+    QuizQuestionListComponent
   ],
   imports: [
     BrowserModule,
