@@ -12,6 +12,11 @@ h3, h4, h6 { font-size: 1.2em; }
 
 h1, h2, h3, h4, h5, h6, form legend {
   font-weight: bold;
+  margin: .75em 0;
+}
+
+main.content {
+  padding: 1em;
 }
 
 input[type='text'] {
@@ -41,6 +46,14 @@ div.danger input {
   border: thin solid red;
 }
 
-div.debug {
+div.debug, form fieldset > div {
   margin: 1em 0;
+}
+
+form fieldset label::after {
+  content: ':'
+}
+
+fieldset input {
+  margin-left: .5em;
 }

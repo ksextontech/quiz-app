@@ -9,13 +9,15 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizCreateFormComponent } from './quiz-create-form/quiz-create-form.component';
 import { QuizQuestionListComponent } from './quiz-question-list/quiz-question-list.component';
+import { QuizQuestionCreateComponent } from './quiz-question-create/quiz-question-create.component';
+import { QuizService } from './services/quiz.service';
 
 const routes: Route[] = [
   { path: '', component: QuizListComponent },
   { path: 'quizzes', component: QuizListComponent },
   { path: 'quiz/create', component: QuizCreateFormComponent },
   { path: 'quiz/:id/questions', component: QuizQuestionListComponent },
-  { path: 'quiz/questions/:quizId', component: QuizQuestionListComponent }
+  { path: 'quiz/:id/questions/new', component: QuizQuestionCreateComponent }
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const routes: Route[] = [
     NavigationComponent,
     QuizListComponent,
     QuizCreateFormComponent,
-    QuizQuestionListComponent
+    QuizQuestionListComponent,
+    QuizQuestionCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ const routes: Route[] = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [QuizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
