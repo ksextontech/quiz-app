@@ -1,13 +1,18 @@
-<form>
+<form #quizForm="ngForm" novalidate>
   <fieldset>
     <legend>Create Quiz</legend>
     <div>
-      <label for="quiz-name">Name</label>
-      <input type="text" name="quiz-name" placeholder="quiz name">
+      <label for="name">Name</label>
+      <input type="text" name="name" ngModel required minLength="6" maxlength="100" placeholder="quiz name">
+      <pre>Valid? {{ quizForm.form.controls.name?.valid }}</pre>
+      <pre>Dirty? {{ quizForm.form.controls.name?.dirty }}</pre>
+      <pre>Touched? {{ quizForm.form.controls.name?.touched }}</pre>
     </div>
   </fieldset>
 
   <div>
-    <button type="submit" (click)="createQuiz()" [disabled]="false">Create Quiz</button>
+    <button type="submit" (click)="createQuiz()" [disabled]="!quizForm.valid">Create Quiz</button>
   </div>
 </form>
+
+<pre>{{ quizForm.value | json }}</pre>

@@ -9,6 +9,8 @@ import { Quiz } from '../model/quiz';
 export class QuizCreateFormComponent implements OnInit {
   @Output() QuizCreated: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
+  quiz: Quiz;
+
   constructor() { }
 
   ngOnInit() {
