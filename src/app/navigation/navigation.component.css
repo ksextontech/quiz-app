@@ -10,10 +10,6 @@ a {
   color: #fff;
 }
 
-a svg {
-  margin-right: .25em;
-}
-
 a:first-of-type {
   margin-left: 0;
 }
