@@ -3,12 +3,24 @@
     <form #quizForm="ngForm" novalidate (ngSubmit)="createQuiz()">
       <fieldset>
         <legend>Create Quiz</legend>
+
         <div class="form-group" [ngClass]="{
                 danger: name?.invalid && (name?.dirty || name?.touched),
                 success: name?.valid && (name?.dirty || name?.touched)
               }">
           <label for="name">Name</label>
-          <input type="text" class="form-control" name="name" ngModel required minLength="6" maxlength="50" placeholder="Angular Components" #name="ngModel">
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            ngModel
+            required
+            minLength="6"
+            maxlength="50"
+            placeholder="Angular Components"
+            #name="ngModel"
+            (input)="onNameInput($event)"
+            >
 
           <!-- <div class="debug">
             <pre>Valid? {{ quizForm.form.controls.name?.valid }}</pre>
@@ -35,11 +47,29 @@
       <button type="submit" class="btn btn-primary" [disabled]="quizForm.invalid">
         Create Quiz
       </button>
+
+      <!-- <p *ngIf="quizCreated; else quizNotCreated">
+        Quiz created!
+      </p>
+
+      <ng-template #quizNotCreated>
+        <p>Quiz not created</p>
+      </ng-template> -->
     </form>
 
-    <div class="debug">
+    <!-- <div class="debug">
       <pre>{{ quizForm.value | json }}</pre>
-    </div>
+    </div> -->
+
+    <!-- <p [ngStyle]="{ 'background-color': getStyle(), 'color': 'white' }" [ngClass]="{ bold: 'true' }">
+      ngStyle demo
+    </p> -->
+
+    <!-- <div *ngFor="let name of sampleQuizNames; let i = index"
+      [ngStyle]="{ backgroundColor: i >= 2 ? 'blue' : 'transparent', color: i >= 2 ? 'white' : 'black' }"
+      [ngClass]="{ bold: i >= 2 }">
+      {{ name }}
+    </div> -->
 
   </div>
 </div>

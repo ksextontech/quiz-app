@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { QuizCreateModel } from '../model/quiz-create';
 import { QuizService } from '../services/quiz.service';
 import { Quiz } from '../model/quiz';
+import { EventManager } from '@angular/platform-browser/src/dom/events/event_manager';
+import { timeout } from 'q';
+import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-quiz-create-form',
@@ -13,9 +16,13 @@ export class QuizCreateFormComponent implements OnInit {
   @Output() QuizCreated: EventEmitter<string> = new EventEmitter<string>();
   @ViewChild('quizForm') form: any;
 
-  constructor(private quizService: QuizService, private router: Router) {
+  quizCreated = false;
+  random: number;
+  sampleQuizNames = ['Angular Forms', 'TypeScript', 'JavaScript Promises', 'C# Generics'];
 
-   }
+  constructor(private quizService: QuizService, private router: Router) {
+    this.random = Math.random();
+  }
 
   ngOnInit() {
 
@@ -33,8 +40,24 @@ export class QuizCreateFormComponent implements OnInit {
 
     // call service to create quiz
     this.quizService.createQuiz(model).subscribe((quiz) => {
+      this.quizCreated = true;
       this.form.reset();
-      this.router.navigate([`quiz/${quiz.id}/questions/new`]);
+
+      setTimeout(() => {
+        this.router.navigate([`quiz/${quiz.id}/questions/new`]);
+      }, 3000);
+
     });
+  }
+
+  onNameInput(event: Event) {
+    console.log(event);
+    const htmlInput = <HTMLInputElement>event.target;
+    console.log(htmlInput);
+  }
+
+  getStyle() {
+    const backgroundColor = this.random > .5 ? 'green' : 'red';
+    return backgroundColor;
   }
 }

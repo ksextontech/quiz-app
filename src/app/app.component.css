@@ -4,7 +4,8 @@ header {
   margin-bottom: 1em;
 }
 
-header > h1 {
+header h1 {
   display: inline-block;
   padding: 11px .5em;
+  margin: 10px 0;
 }

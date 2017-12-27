@@ -5,6 +5,10 @@ body, select, input, textarea {
   font-family: 'Lato', sans-serif;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 div.debug {
   margin: 1em 0;
 }
