@@ -1,6 +1,7 @@
 header {
   background-color: #2d2d2d;
   color: white;
+  margin-bottom: 1em;
 }
 
 header > h1 {

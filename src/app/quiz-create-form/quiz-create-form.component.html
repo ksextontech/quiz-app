@@ -1,26 +1,45 @@
-<form #quizForm="ngForm" novalidate (ngSubmit)="createQuiz()">
-  <fieldset>
-    <legend>Create Quiz</legend>
-    <div [ngClass]="{
-        danger: name?.invalid && (name?.dirty || name?.touched),
-        success: name?.valid && (name?.dirty || name?.touched)
-      }">
-      <label for="name">Name</label>
-      <input type="text" name="name" ngModel required minLength="6" maxlength="50" placeholder="quiz name" #name="ngModel">
+<div class="row">
+  <div class="col-md-12">
+    <form #quizForm="ngForm" novalidate (ngSubmit)="createQuiz()">
+      <fieldset>
+        <legend>Create Quiz</legend>
+        <div class="form-group" [ngClass]="{
+                danger: name?.invalid && (name?.dirty || name?.touched),
+                success: name?.valid && (name?.dirty || name?.touched)
+              }">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" ngModel required minLength="6" maxlength="50" placeholder="Angular Components" #name="ngModel">
 
-      <div class="debug">
-        <pre>Valid? {{ quizForm.form.controls.name?.valid }}</pre>
-        <pre>Dirty? {{ quizForm.form.controls.name?.dirty }}</pre>
-        <pre>Touched? {{ quizForm.form.controls.name?.touched }}</pre>
-      </div>
+          <!-- <div class="debug">
+            <pre>Valid? {{ quizForm.form.controls.name?.valid }}</pre>
+            <pre>Dirty? {{ quizForm.form.controls.name?.dirty }}</pre>
+            <pre>Touched? {{ quizForm.form.controls.name?.touched }}</pre>
+          </div> -->
+        </div>
+
+        <div class="form-group" [ngClass]="{
+            success: (description?.dirty && description?.touched && description?.value.trim() != '')
+          }">
+          <label for="name">Description</label>
+          <textarea type="text" class="form-control" name="description" ngModel maxlength="250" placeholder="what is this quiz about?" #description="ngModel"></textarea>
+
+          <!-- <div class="debug">
+            <pre>Valid? {{ quizForm.form.controls.description?.valid }}</pre>
+            <pre>Dirty? {{ quizForm.form.controls.description?.dirty }}</pre>
+            <pre>Touched? {{ quizForm.form.controls.description?.touched }}</pre>
+          </div> -->
+
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary" [disabled]="quizForm.invalid">
+        Create Quiz
+      </button>
+    </form>
+
+    <div class="debug">
+      <pre>{{ quizForm.value | json }}</pre>
     </div>
-  </fieldset>
 
-  <div>
-    <button type="submit" [disabled]="quizForm.invalid">Create Quiz</button>
   </div>
-</form>
-
-<div class="debug">
-  <pre>{{ quizForm.value | json }}</pre>
 </div>

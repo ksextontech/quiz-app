@@ -1,59 +1,27 @@
-@import url('reset.css');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-* {
+body, select, input, textarea {
   font-size: 14px;
   font-family: 'Lato', sans-serif;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3, h4, h6 { font-size: 1.2em; }
-
-h1, h2, h3, h4, h5, h6, form legend {
-  font-weight: bold;
-  margin: .75em 0;
-}
-
-main.content {
-  padding: 1em;
-}
-
-input[type='text'] {
-  padding: .3em;
-  border-radius: 2px;
-  border: thin solid lightgrey;
-}
-
-pre {
-  font-family: Consolas;
-  font-size: .9em;
-  /* max-height: 350px;
-  overflow: auto; */
-  /* background-color: whitesmoke; */
-  color: black;
-}
-
-/* pre:hover, pre:focus {
-  width: min-content;
-} */
-
-div.success input {
-  border: thin solid green;
-}
-
-div.danger input {
-  border: thin solid red;
-}
-
-div.debug, form fieldset > div {
+div.debug {
   margin: 1em 0;
 }
 
-form fieldset label::after {
-  content: ':'
+div.success input, div.success textarea {
+  border: thin solid green;
 }
 
-fieldset input {
-  margin-left: .5em;
+div.danger input, div.danger textarea {
+  border: thin solid red;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+textarea {
+  max-width: 100%;
+  min-height: 100px;
 }
