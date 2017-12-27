@@ -1,11 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuizCreateModel } from '../model/quiz-create';
+import { QuizCreateModel } from '../model/quiz-create.model';
 import { QuizService } from '../services/quiz.service';
-import { Quiz } from '../model/quiz';
+import { Quiz } from '../model/quiz.model';
 import { EventManager } from '@angular/platform-browser/src/dom/events/event_manager';
-import { timeout } from 'q';
-import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-quiz-create-form',
