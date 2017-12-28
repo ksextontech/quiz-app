@@ -12,6 +12,8 @@ import { QuizQuestionListComponent } from './quiz-question-list/quiz-question-li
 import { QuizQuestionCreateComponent } from './quiz-question-create/quiz-question-create.component';
 import { QuizService } from './services/quiz.service';
 import { PanelComponent } from './panel/panel.component';
+import { HighlightDirective } from './highlight.directive';
+import { UnlessDirective } from './unless.directive';
 
 const routes: Route[] = [
   { path: '', component: QuizListComponent },
@@ -29,7 +31,9 @@ const routes: Route[] = [
     QuizCreateFormComponent,
     QuizQuestionListComponent,
     QuizQuestionCreateComponent,
-    PanelComponent
+    PanelComponent,
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

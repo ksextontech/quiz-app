@@ -2,7 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h1>Quiz App</h1>
+        <!-- default color is a property of the [appHighlight] directive
+          be careful with this kind of binding, because it can be unclear
+          note that an input property of the directive can be named the same as the directive,
+          which allows you to use the syntax shown below with the highlight color passed in with the directive name / property
+        -->
+        <h1 [appHighlight]="'blue'" defaultColor="red">Quiz App</h1>
       </div>
     </div>
   </div>
@@ -12,6 +17,17 @@
   <div class="row">
     <div class="col-xs-12">
         <router-outlet></router-outlet>
+
+        <div *appUnless="false">
+          <p>Unless (Structural) Directive</p>
+        </div>
+
+        <div [ngSwitch]="value">
+          <p *ngSwitchCase="5">Value is 5</p>
+          <p *ngSwitchCase="10">Value is 10</p>
+          <p *ngSwitchCase="100">Value is 100</p>
+          <p *ngSwitchDefault>Value is {{ value }} (default switch case)</p>
+        </div>
     </div>
   </div>
 </main>
