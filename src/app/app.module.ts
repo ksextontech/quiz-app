@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Route } from '@angular/router';
+import { RouterModule, Routes, Route } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -14,13 +14,15 @@ import { QuizService } from './services/quiz.service';
 import { PanelComponent } from './panel/panel.component';
 import { HighlightDirective } from './highlight.directive';
 import { UnlessDirective } from './unless.directive';
+import { NotFoundComponent } from './not-found/not-found.component';
 
-const routes: Route[] = [
-  { path: '', component: QuizListComponent },
+const routes: Routes = [
+  { path: '', redirectTo: 'quizzes', pathMatch: 'full' },
   { path: 'quizzes', component: QuizListComponent },
   { path: 'quiz/create', component: QuizCreateFormComponent },
   { path: 'quiz/:id/questions', component: QuizQuestionListComponent },
-  { path: 'quiz/:id/questions/new', component: QuizQuestionCreateComponent }
+  { path: 'quiz/:id/questions/new', component: QuizQuestionCreateComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const routes: Route[] = [
     QuizQuestionCreateComponent,
     PanelComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

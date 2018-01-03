@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { QuizCreateModel } from '../model/quiz-create.model';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
+
+import { QuizCreateModel } from '../model/quiz-create.model';
 import { Quiz } from '../model/quiz.model';
 
 const API_BASE_URL = 'http://localhost:5000';
