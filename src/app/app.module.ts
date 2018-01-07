@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes, Route } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
@@ -11,19 +13,12 @@ import { QuizCreateFormComponent } from './quiz-create-form/quiz-create-form.com
 import { QuizQuestionListComponent } from './quiz-question-list/quiz-question-list.component';
 import { QuizQuestionCreateComponent } from './quiz-question-create/quiz-question-create.component';
 import { QuizService } from './services/quiz.service';
+
 import { PanelComponent } from './panel/panel.component';
 import { HighlightDirective } from './highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-const routes: Routes = [
-  { path: '', redirectTo: 'quizzes', pathMatch: 'full' },
-  { path: 'quizzes', component: QuizListComponent },
-  { path: 'quiz/create', component: QuizCreateFormComponent },
-  { path: 'quiz/:id/questions', component: QuizQuestionListComponent },
-  { path: 'quiz/:id/questions/new', component: QuizQuestionCreateComponent },
-  { path: '**', component: NotFoundComponent }
-];
+import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -43,9 +38,9 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
-  providers: [QuizService],
+  providers: [QuizService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
