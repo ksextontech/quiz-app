@@ -14,7 +14,7 @@ import { QuizQuestionListComponent } from './quiz-question-list/quiz-question-li
 import { QuizQuestionCreateComponent } from './quiz-question-create/quiz-question-create.component';
 import { QuizService } from './services/quiz.service';
 
-import { PanelComponent } from './panel/panel.component';
+import { PanelComponent } from './shared/panel/panel.component';
 import { HighlightDirective } from './highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
