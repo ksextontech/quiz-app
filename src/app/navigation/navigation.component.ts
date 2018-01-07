@@ -31,7 +31,6 @@ AfterViewChecked,
 OnDestroy {
 
   @ViewChild('mainNav') navElement: ElementRef;
-  @Input() value: string;
 
   constructor() {
     // console.log('constructor())');
