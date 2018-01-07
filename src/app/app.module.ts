@@ -19,6 +19,7 @@ import { HighlightDirective } from './highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
     PanelComponent,
     HighlightDirective,
     UnlessDirective,
-    NotFoundComponent
+    NotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

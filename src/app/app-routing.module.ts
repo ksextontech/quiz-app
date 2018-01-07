@@ -5,6 +5,7 @@ import { QuizCreateFormComponent } from './quiz-create-form/quiz-create-form.com
 import { QuizQuestionListComponent } from './quiz-question-list/quiz-question-list.component';
 import { QuizQuestionCreateComponent } from './quiz-question-create/quiz-question-create.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'quizzes', pathMatch: 'full' },
@@ -12,6 +13,8 @@ const appRoutes: Routes = [
   { path: 'quiz/create', component: QuizCreateFormComponent },
   { path: 'quiz/:id/questions', component: QuizQuestionListComponent },
   { path: 'quiz/:id/questions/new', component: QuizQuestionCreateComponent },
+  { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page not found!'} },
+  // { path: 'not-found', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
